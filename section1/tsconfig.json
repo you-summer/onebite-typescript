@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "ESNext", //ESNext는 자바스크립트 최신버전을 의미함
+    //target 생성되는 자바스크립트 코드의 버전 조정가능
+    // target옵션처럼 타입스크립트를 자바스크립트로 변환하는 과정이나 type검사등에
+    // 상세한 옵션을 설정할 때는 지금처럼 컴파일러옵션즈라는 항목 안에다가 옵션을 설정한다 라고 이해하면됨
+    "module": "ESNext", //ESModule
+    //CommonJS도 있음
+    "outDir": "dist",
+    //컴파일 결과 생성될 자바스크립트 파일들이 어디에 위치했으면 좋겠는지
+    "strict": false,
+    //타입스크립트 컴파일러가 타입을 검사할 때 얼마나 엄격하게 할지 결정하는 옵션
+    //true : 아주 엄격하게 검사함
+    //false : 엄격하지않게, 유연하게
+    //보통은 true로 켜둔상태에서 작업하게됨
+    "moduleDetection": "force"
+    //타입스크립트가 각각의 파일을 어떤 모듈로 감지할건지 결정하는 옵션
+    //force : export{} 가 붙으면서 개별모듈로 인정해줌
+  },
+  "include": ["src"]
+}
