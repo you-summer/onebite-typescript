@@ -56,9 +56,9 @@ function neverExam() {
   let str: string = neverFunc();
   let bool: boolean = neverFunc();
 
-  //   let never1: never = 10;
-  //   let never2: never = "hello";
-  //   let never3: never = true;
+  // let never1: never = 10;
+  // let never2: never = "hello";
+  // let never3: never = true;
 }
 // 이 함수가 반환하는 값의 종류는 공집합이다 라고 하는것과 같음
 // 반환할 수 있는 값의 종류가 아무것도 없다 라고 설정을 해놓은것
