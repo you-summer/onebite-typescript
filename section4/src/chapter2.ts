@@ -70,7 +70,44 @@ type Dog = {
 };
 // 두 타입의 관계는 애니멀이 도그타입의 슈퍼타입임
 
-let animalFunc = (animal: Animal) => {};
-let dogFunc = (dog: Dog) => {};
+let animalFunc = (animal: Animal) => {
+  console.log(animal.name);
+};
+let dogFunc = (dog: Dog) => {
+  console.log(dog.name);
+  console.log(dog.color);
+};
+
+// animalFunc = dogFunc;
+//위의 상황은 호환이 안됨 아까랑 똑같은 상황인데
+// animalFunc의 매개변수 타입은 Animal임 dogFunc의 매개변수 타입은 Dog
+// animalFunc의 매개변수 타입이 더 큰 타입임 animal이 슈퍼타입이니까
+// dogFunc에서 animalFunc로 업캐스팅되는 상황인데 안 되는 거임
+
+let testFunc = (animal: Animal) => {
+  console.log(animal.name);
+  //   console.log(animal.color);
+};
+
+dogFunc = animalFunc;
+// 이게 되는 이유는 이거를 함수로 똑같이 만들어보면
+
+let testFunc2 = (dog: Dog) => {
+  console.log(dog.name);
+};
+// dog타입은 애니멀의 서브타입이기 때문에 기본적으로 애니멀 타입의 객체들이 갖고있는 모든 프로퍼티를 도그타입은 이미 다 갖고있음
 
 // 2-2. 매개변수의 개수가 다를 때
+
+type Func1 = (a: number, b: number) => void;
+type Func2 = (a: number) => void;
+
+let func1: Func1 = (a, b) => {};
+let func2: Func2 = (a) => {};
+
+func1 = func2; //허용됨
+func2 = func1;
+
+// 할당하려고 하는 쪽의 함수의 타입에 매개변수의 갯수가 더 적을 때에만 호환이 된다라고 이해해주면 됨
+// 근데!! 매개변수의 타입이 다르면 이거는 당연히 안됨
+// 적어도 매개변수의 개수가 다를 때의 기준을 적용하려면 타입이 같은 매개변수가 있어야 된다 라고 이해를 하면 됨
